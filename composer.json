@@ -1,0 +1,23 @@
+{
+  "name": "lacuna/restpki-client-legacy",
+  "type": "library",
+  "version": "1.0.0",
+  "description": "Client Legacy lib for Rest PKI",
+  "keywords": [ "lacuna", "client lib", "rest pki", "signature", "legacy" ],
+  "homepage": "https://pki.rest/",
+  "authors": [
+    {
+      "name": "Ismael Medeiros",
+      "email": "IsmaelM@lacunasoftware.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.0",
+    "nategood/httpful": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Lacuna\\RestPki\\ClientLegacy\\": "src/"
+    }
+  }
+}
