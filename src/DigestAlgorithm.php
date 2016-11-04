@@ -15,13 +15,13 @@ class DigestAlgorithm
 
     private function __construct($name)
     {
-        $this->name = constant('Lacuna\DigestAlgorithm::' . $name);
+        $this->name = constant('Lacuna\RestPki\ClientLegacy\DigestAlgorithm::' . $name);
         $this->algorithm = $name;
     }
 
     public static function getInstanceByApiAlgorithm($algorithm)
     {
-        if (defined('Lacuna\DigestAlgorithm::' . $algorithm)) {
+        if (defined('Lacuna\RestPki\ClientLegacy\DigestAlgorithm::' . $algorithm)) {
             return new DigestAlgorithm($algorithm);
         } else {
             throw new \RuntimeException("Unsupported digest algorithm: " . $algorithm); // should not happen
