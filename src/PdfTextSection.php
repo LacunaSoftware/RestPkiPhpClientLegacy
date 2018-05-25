@@ -9,22 +9,15 @@ class PdfTextSection
     public $color;
     public $fontSize;
 
-    public function __construct()
+    public function __construct($text = null, $color = null, $fontSize = null)
     {
-        $args = func_get_args();
-        if (sizeof($args) == 0) {
-            $this->style = PdfTextStyle::NORMAL;
-            $this->color = new Color('#000000');
-        } elseif (sizeof($args) == 2) { // Case (text, color)
-            $this->text = $args[0];
-            $this->color = $args[1];
-            $this->fontSize = null;
-        } elseif (sizeof($args) == 3) { // Case (text, color, fontSize)
-            $this->text = $args[0];
-            $this->color = $args[1];
-            $this->fontSize = $args[2];
+        $this->style = PdfTextStyle::NORMAL;
+        $this->text = $text;
+        $this->fontSize = $fontSize;
+        if (empty($color)) {
+            $this->color = new Color('#000000'); // Black
         } else {
-            throw new \InvalidArgumentException("Invalid parameters passed to the PdfMarkText's Constructor.");
+            $this->color = $color;
         }
     }
 }

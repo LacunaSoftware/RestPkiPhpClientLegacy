@@ -8,6 +8,7 @@ use Httpful\Response;
 
 class RestPkiClient
 {
+    const LIB_VERSION = '2.2.5';
 
     private $endpointUrl;
     private $accessToken;
@@ -23,7 +24,8 @@ class RestPkiClient
         $verb = 'GET';
         $request = Request::get($this->endpointUrl . $url)
             ->expectsJson()
-            ->addHeader('Authorization', 'Bearer ' . $this->accessToken);
+            ->addHeader('Authorization', 'Bearer ' . $this->accessToken)
+            ->addHeader('X-RestPki-Client', 'PHP Legacy ' . RestPkiClient::LIB_VERSION);
         try {
             $httpResponse = $request->send();
         } catch (ConnectionErrorException $ex) {
@@ -38,7 +40,8 @@ class RestPkiClient
         $verb = 'POST';
         $request = Request::post($this->endpointUrl . $url)
             ->expectsJson()
-            ->addHeader('Authorization', 'Bearer ' . $this->accessToken);
+            ->addHeader('Authorization', 'Bearer ' . $this->accessToken)
+            ->addHeader('X-RestPki-Client', 'PHP Legacy ' . RestPkiClient::LIB_VERSION);
         if (!is_null($data)) {
             $request->sendsJson()->body(json_encode($data));
         }
