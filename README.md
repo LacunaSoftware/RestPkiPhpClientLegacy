@@ -7,7 +7,7 @@ This library contains classes that encapsulate the calls to the REST PKI API.
 The recommended way to install **Reat PKI Client Legacy lib** is through [Composer](http://getcomposer.org):
 
     "require": {
-        "lacuna/restpki-client-legacy": "<package_version>"
+        "lacuna/restpki-client-legacy": "1.0.0"
     }
 
 This file depends on the Httpful package, which in turn requires PHP 5.3 or greater. If you use PHP 5.5 or greater,

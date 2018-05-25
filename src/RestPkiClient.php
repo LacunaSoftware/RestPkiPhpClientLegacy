@@ -8,7 +8,7 @@ use Httpful\Response;
 
 class RestPkiClient
 {
-    const LIB_VERSION = '2.2.5';
+    const LIB_VERSION = '1.0.0';
 
     private $endpointUrl;
     private $accessToken;
