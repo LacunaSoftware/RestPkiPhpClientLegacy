@@ -2,7 +2,7 @@
   "name": "lacuna/restpki-client-legacy",
   "type": "library",
   "description": "Client Legacy lib for Rest PKI",
-  "keywords": [ "lacuna", "client lib", "rest pki", "signature", "legacy" ],
+  "keywords": [ "lacuna", "client lib", "rest", "pki", "signature", "legacy" ],
   "homepage": "https://pki.rest/",
   "authors": [
     {
@@ -16,7 +16,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Lacuna\\RestPki\\ClientLegacy\\": "src/"
+      "Lacuna\\RestPki\\Legacy\\": "src/"
     }
   }
 }
