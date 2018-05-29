@@ -1,6 +1,6 @@
 <?php
 
-namespace Lacuna\RestPki\ClientLegacy;
+namespace Lacuna\RestPki\Legacy;
 
 use Httpful\Request;
 use Httpful\Exception\ConnectionErrorException;
@@ -8,7 +8,7 @@ use Httpful\Response;
 
 class RestPkiClient
 {
-    const LIB_VERSION = '2.2.5';
+    const LIB_VERSION = '1.0.0';
 
     private $endpointUrl;
     private $accessToken;

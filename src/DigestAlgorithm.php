@@ -1,6 +1,6 @@
 <?php
 
-namespace Lacuna\RestPki\ClientLegacy;
+namespace Lacuna\RestPki\Legacy;
 
 class DigestAlgorithm
 {
@@ -15,13 +15,13 @@ class DigestAlgorithm
 
     private function __construct($name)
     {
-        $this->name = constant('Lacuna\RestPki\ClientLegacy\DigestAlgorithm::' . $name);
+        $this->name = constant('Lacuna\RestPki\Legacy\DigestAlgorithm::' . $name);
         $this->algorithm = $name;
     }
 
     public static function getInstanceByApiAlgorithm($algorithm)
     {
-        if (defined('Lacuna\RestPki\ClientLegacy\DigestAlgorithm::' . $algorithm)) {
+        if (defined('Lacuna\RestPki\Legacy\DigestAlgorithm::' . $algorithm)) {
             return new DigestAlgorithm($algorithm);
         } else {
             throw new \RuntimeException("Unsupported digest algorithm: " . $algorithm); // should not happen

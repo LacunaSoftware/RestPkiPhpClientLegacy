@@ -1,6 +1,6 @@
 <?php
 
-namespace Lacuna\RestPki\ClientLegacy;
+namespace Lacuna\RestPki\Legacy;
 
 class PadesSignatureStarter extends SignatureStarter
 {
