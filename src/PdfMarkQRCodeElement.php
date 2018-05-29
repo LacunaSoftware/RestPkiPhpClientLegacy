@@ -3,7 +3,7 @@
 namespace Lacuna\RestPki\Legacy;
 
 
-class PdfMarkQRCodeElement
+class PdfMarkQRCodeElement extends PdfMarkElement
 {
     public $qrCodeData;
     public $drawQuietZones;
