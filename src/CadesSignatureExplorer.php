@@ -43,10 +43,6 @@ class CadesSignatureExplorer extends SignatureExplorer
             $signer->messageDigest->algorithm = DigestAlgorithm::getInstanceByApiAlgorithm(
                 $signer->messageDigest->algorithm
             );
-
-            if (isset($signer->signingTime)) {
-                $signer->signingTime = date("d/m/Y H:i:s P", strtotime($signer->signingTime));
-            }
             if (isset($signer->certificate)) {
                 if (isset($signer->certificate->pkiBrazil)) {
 
