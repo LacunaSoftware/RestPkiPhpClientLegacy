@@ -78,6 +78,32 @@ class RestPkiClient
         }
     }
 
+    /**
+     * @internal
+     * @param $url
+     * @return string
+     * @throws RestErrorException
+     * @throws RestPkiException
+     * @throws RestUnreachableException
+     * @throws ValidationException
+     */
+    public function _downloadContent($url)
+    {
+        $verb = 'GET';
+        $request = Request::get($this->endpointUrl . $url)
+            ->addHeaders(array(
+                'Authorization' => sprintf('Bearer %s', $this->accessToken),
+                'X-RestPki-Client' => sprintf('PHP Legacy %s', RestPkiClient::LIB_VERSION)
+            ));
+        try {
+            $httpResponse = $request->send();
+        } catch (ConnectionErrorException $ex) {
+            throw new RestUnreachableException($verb, $url, $ex);
+        }
+        $this->checkResponse($verb, $url, $httpResponse);
+        return $httpResponse->body;
+    }
+
     public function getAuthentication()
     {
         return new Authentication($this);
