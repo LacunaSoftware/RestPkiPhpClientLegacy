@@ -26,9 +26,13 @@ class FileResult
         return $this->model;
     }
 
-    public function getContentRaw() {
-        $base64Content = $this->getContentBase64();
-        return base64_decode($base64Content);
+    public function getContentRaw()
+    {
+        if (isset($this->model->content)) {
+            return base64_encode($this->model->content);
+        } else {
+            return $this->client->_downloadContent($this->model->url);
+        }
     }
 
     public function getContentBase64()
@@ -36,7 +40,8 @@ class FileResult
         if (isset($this->model->content)) {
             return $this->model->content;
         } else {
-            return $this->client->_downloadContent($this->model->url);
+            $contentRaw = $this->client->_downloadContent($this->model->url);
+            return base64_encode($contentRaw);
         }
     }
 }
