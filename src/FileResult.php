@@ -29,7 +29,7 @@ class FileResult
     public function getContentRaw()
     {
         if (isset($this->model->content)) {
-            return base64_encode($this->model->content);
+            return base64_decode($this->model->content);
         } else {
             return $this->client->_downloadContent($this->model->url);
         }
